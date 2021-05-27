@@ -1,0 +1,139 @@
+{% extends './base.html' %}
+{% load static %}
+
+    {% block title %}Personal Website{% endblock %}
+
+    {% block css %}
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css">
+    {% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-md-4">
+                <div class="card h-100" id="profile-image">
+                    <div class="card-body">
+                        <img id="profile-pic" src="{% static 'images/akshay.jpg' %}">
+                        <hr>
+                        <p style="color: #ff5722;"> <strong>AKSHAY KUMAR</strong></p>
+                        <p>Developer </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card  h-100" id="profile-wrapper">
+                    <div class="card-body">
+                        <h3 class="card-title">OBJECTIVE</h3>
+                        <hr>
+                        <p class="card-text">I intend to be a part of an organization where I can learn and develop my
+                            technical and management skills and make best use of it for the growth of the organization.
+                            I look forward to establishing myself by adapting new technologies as well.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-12">
+                <div class="card" id="profile-wrapper">
+                    <div class="card-body">
+                        <h3>CONTACT INFO</h3>
+                        <hr>
+                        <ul class="social-links">
+                            <li><a class="element" href="tel:+918447752970">
+                                    <span class="popover"><strong>8447752970</strong></span>
+                                    <img class="social" src="{% static 'images/phone.png' %}"></a>
+                            </li>
+                            <li><a href="https://www.instagram.com/iakpro/">
+                                    <img class="social" src="{% static 'images/instagram.png' %}">
+                                </a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/akshay-kumar-352665180/">
+                                    <img class="social" src="{% static 'images/linkedin.png' %}">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/aksravan">
+                                    <img class="social" src="{% static 'images/github.png' %}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-12">
+                <div class="card" id="profile-wrapper">
+                    <div class="card-body">
+                        <h3>PROJECTS</h3>
+                        <hr>
+                        {% for proj in projects %}
+                        <p>
+                            <h4><a href="{{ proj.get_url }}">{{ proj.project_name }}</a></h4>
+                            <strong>Project Period</strong> - {{ proj.started }} to {{ proj.ended }}
+                        </p>
+                        <p>{{ proj.description|truncatewords:'40' }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-6">
+                <div class="card  h-100" id="profile-wrapper">
+                    <div class="card-body">
+                        <h3>EDUCATION</h3>
+                        <hr>
+                        <ul>
+                            <li>Pursuing B.Tech. in CSE.</li>
+                            <li>Senior Secondary(12<sup>th</sup>) from Kendriya Vidyalaya.</li>
+                            <li>Secondary(10<sup>th</sup>) from Kendriya Vidyalaya.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card  h-100" id="profile-wrapper">
+                    <div class="card-body">
+                        <h3>TECHNICAL SKILLS</h3>
+                        <hr>
+                        <strong>Languages</strong>
+                        <p>C/C++, Python, Kotlin, Android</p>
+                        <strong>Tools</strong>
+                        <p>PYQT5, Automaya, Android Studio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-6">
+                <div class="card  h-100" id="profile-wrapper">
+                    <div class="card-body">
+                        <h3>TRAININGS</h3>
+                        <hr>
+                        <ul>
+                            <li><strong>Android Development</strong> - Insternshala Online Trainings May 2020 - July
+                                2020</li>
+                            <li><strong>Programming with Python</strong> - Insternshala Online Trainings Jul 2019 - Aug
+                                2019</li>
+                            <li><strong>Learn C++ And Make Video Games</strong> - Udemy (Online) Jan 2020 – May 2020
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card  h-100" id="profile-wrapper">
+                    <div class="card-body">
+                        <h3>WORKSHOPS</h3>
+                        <hr>
+                        <p>Attended <strong>MACHINE LEARNING</strong> workshop held in the college.</p>
+                        <p>Attended workshop on <strong> PYTHON and its benefits </strong> over the other languages in
+                            today’s life.</p>
+                        <p>Attended workshop on <strong> ARTIFICIAL INTELLIGENCE</strong> .</p>
+                        <p>IIT Mumbai Present's "A Free Placement Oriented Webinar on Artificial Intelligence".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

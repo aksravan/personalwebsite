@@ -1,0 +1,63 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}Project | {{ project.project_name }}{% endblock %}
+
+{% block script %}
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+</script>
+
+{% endblock %}
+
+
+{% block css %}
+<link href="{% static 'css/project.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row my-3 mx-4">
+        <h3>Project - {{ project.project_name }}</h3>
+    </div>
+    <div class="row my-3 mx-4">
+        <h5>Description</h5>
+        <p>{{ project.description }}</p>
+    </div>
+    <div id="link" class="row my-3 mx-4">
+        <p>You can check here for the <a href="{{ project.source }}">source code.</a></p>
+    </div>
+    <div class="row my-3 mx-4">
+        <p>Here are some samples of the project.</p>
+    </div>
+    <div class="element">
+        <img class="b1 fl" onclick="plusDivs(-1)" src="{% static 'images/left_arrow.png' %}">
+        {% for photo in photos %}
+        <img class="mySlides fl" src="{% static photo.images.name %}">
+        {% endfor %}
+        <img class="b2 fl" onclick="plusDivs(1)" src="{% static 'images/right_arrow.png' %}">
+    </div>
+</div>
+
+{% endblock %}

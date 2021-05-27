@@ -1,0 +1,67 @@
+body {
+    background-color: #212121 !important;
+    color: #fafafa!important;
+}
+h3{
+    color: #ffea00!important;
+}
+hr{
+    border-color: #424242!important;
+}
+#profile-wrapper h3, p, ul{
+    text-align: center;
+}
+#profile-image {
+    text-align: center;
+}
+#profile-wrapper a{
+    text-decoration: none;
+}
+.element {
+    position: relative;
+    display: inline-block;
+}
+.card{
+    border: none!important;
+    background-color: transparent!important;
+}
+.popover {
+    visibility: hidden;
+    color: #fafafa;
+    text-align: left;
+    margin-top: -20px;
+    position: absolute;
+    background-color: transparent!important;
+    border: none!important;
+    z-index: -1;
+}
+
+.element:hover .popover {
+    visibility: visible;
+}
+
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.social-links ul,
+li {
+    list-style-type: none;
+    display: inline-block;
+    text-indent: 30px;
+}
+
+.social {
+    width: 60px;
+    height: 60px;
+}
+
